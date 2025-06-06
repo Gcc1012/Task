@@ -15,6 +15,6 @@ def build_model(num_classes, input_shape=(224, 224, 3), freeze=False):
     x = base_model.output
     x = GlobalAveragePooling2D()(x)
     x = Dense(1024, activation='relu')(x)
-    predictions = Dense(num_classes, activation='sigmoid')(x)
+    predictions = Dense(1, activation='sigmoid')(x)
     model = Model(inputs=base_model.input, outputs=predictions)
     return model
